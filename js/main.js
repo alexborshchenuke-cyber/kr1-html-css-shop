@@ -72,3 +72,22 @@ orderForm.addEventListener('submit', (event) => {
   // Закрываем модальное окно.
   orderDialog.close();
 });
+
+/* ===============================
+   Кнопка «Наверх»
+   =============================== */
+
+const toTopButton = document.getElementById('to-top');
+
+// Скрываем кнопку при загрузке страницы.
+toTopButton.hidden = true;
+
+// Плавная прокрутка наверх по клику.
+toTopButton.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Показываем кнопку только после прокрутки 300px.
+window.addEventListener('scroll', () => {
+  toTopButton.hidden = window.scrollY <= 300;
+});
