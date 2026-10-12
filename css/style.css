@@ -60,17 +60,17 @@ body {
   padding-top: 72px;
 }
 
-header,
+.site-header,
 main,
-footer {
+.site-footer {
   padding: var(--space-lg);
 }
 
-header {
+.site-header {
   background-color: var(--color-surface);
 }
 
-footer {
+.site-footer {
   background-color: var(--color-surface);
 }
 
@@ -121,7 +121,7 @@ a:focus-visible {
 /*
   Оформляем текстовый логотип.
 */
-.site-logo {
+.site-header__logo {
   font-weight: bold;
   text-decoration: none;
   color: var(--color-text);
@@ -172,7 +172,7 @@ a:focus-visible {
   width: 100%;
 }
 
-.site-nav__list a {
+.site-nav__link {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
   color: var(--color-primary);
@@ -180,7 +180,8 @@ a:focus-visible {
   border-radius: var(--radius-sm);
 }
 
-.site-nav__list a:hover {
+.site-nav__link:hover,
+.site-nav__link--active {
   color: var(--color-white);
   background-color: var(--color-primary);
 }
@@ -204,6 +205,22 @@ a:focus-visible {
 */
 .button:hover {
   background-color: var(--color-primary-dark);
+}
+
+.button--primary {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.button--secondary {
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+}
+
+.button--secondary:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
 }
 
 .button:focus-visible {
@@ -294,11 +311,20 @@ a:focus-visible {
   border-color: var(--color-primary);
 }
 
+.product-card--featured {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-accent);
+}
+
+.product-card--discount .product-card__price {
+  color: var(--color-danger);
+}
+
 /*
   Заглушка вместо картинки товара.
-  Потом можно заменить на <img class="product-card__img">.
+  Потом можно заменить на <img class="product-card__image">.
 */
-.product-card__img {
+.product-card__image {
   height: 120px;
   margin-bottom: var(--space-md);
   background-color: var(--color-surface-accent);
@@ -321,7 +347,7 @@ a:focus-visible {
   color: var(--color-primary);
 }
 
-.product-card .button {
+.product-card__button {
   margin-top: auto;
   align-self: flex-start;
 }
@@ -363,14 +389,14 @@ a:focus-visible {
   Поле формы.
   Каждый блок получает нижний отступ.
 */
-.form-field {
+.order-form__field {
   margin-bottom: var(--space-md);
 }
 
 /*
   Подпись поля.
 */
-.form-field label {
+.order-form__label {
   display: block;
   margin-bottom: var(--space-xs);
 }
@@ -378,9 +404,9 @@ a:focus-visible {
 /*
   Основные поля формы.
 */
-.form-field input,
-.form-field select,
-.form-field textarea {
+.order-form__input,
+.order-form__select,
+.order-form__textarea {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid var(--color-border);
@@ -391,14 +417,14 @@ a:focus-visible {
 /*
   Checkbox не должен занимать всю ширину.
 */
-.form-field input[type="checkbox"] {
+.order-form__checkbox {
   width: auto;
 }
 
 /*
   Подсказка под полем.
 */
-.form-field small {
+.order-form__hint {
   display: block;
   margin-top: var(--space-xs);
   color: var(--color-muted);
@@ -407,19 +433,19 @@ a:focus-visible {
 /*
   Состояние наведения для полей формы.
 */
-.form-field input:hover,
-.form-field select:hover,
-.form-field textarea:hover {
+.order-form__input:hover,
+.order-form__select:hover,
+.order-form__textarea:hover {
   border-color: var(--color-primary);
 }
 
 /*
   Видимый фокус для клавиатурной навигации.
 */
-.form-field input:focus-visible,
-.form-field select:focus-visible,
-.form-field textarea:focus-visible,
-.form-actions button:focus-visible {
+.order-form__input:focus-visible,
+.order-form__select:focus-visible,
+.order-form__textarea:focus-visible,
+.order-form__actions button:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
@@ -436,7 +462,7 @@ a:focus-visible {
   Кнопки формы.
   display: flex — кнопки в одну строку (пункт 11).
 */
-.form-actions {
+.order-form__actions {
   display: flex;
   gap: 12px;
   margin-top: 20px;
@@ -495,11 +521,11 @@ a:focus-visible {
   color: var(--color-muted);
 }
 
-.breadcrumbs a {
+.breadcrumbs__link {
   color: var(--color-primary);
 }
 
-.breadcrumbs span::before {
+.breadcrumbs__current::before {
   content: " / ";
   color: var(--color-muted);
 }
@@ -564,4 +590,9 @@ html {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font: inherit;
+}
+
+
+.order-dialog__title {
+  margin-top: 0;
 }
