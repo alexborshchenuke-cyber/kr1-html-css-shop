@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Каталог товаров</title>
+  <meta name="description" content="Главная страница учебного интернет-магазина: популярные товары, преимущества, отзывы и часто задаваемые вопросы.">
+  <title>Главная — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -17,18 +17,18 @@
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="product.html">Карточка товара</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html#contacts">Обратная связь</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#reviews">Отзывы</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#faq">FAQ</a></li>
         </ul>
       </nav>
-
     </div>
   </header>
 
   <main>
-    <!-- Основное содержимое страницы -->
+    <!-- Hero-блок -->
     <section class="hero">
       <h1>Учебный интернет-магазин</h1>
       <p>
@@ -39,6 +39,7 @@
       <a class="button button--primary" href="#popular">Перейти к товарам</a>
     </section>
 
+    <!-- Преимущества -->
     <section class="section" id="advantages">
       <h2>Преимущества проекта</h2>
 
@@ -50,12 +51,17 @@
       </ul>
     </section>
 
+    <!-- Популярные товары -->
     <section class="section" id="popular">
       <h2>Популярные товары</h2>
 
       <div class="products-grid">
         <article class="product-card product-card--featured">
-          <div class="product-card__image" aria-hidden="true"></div>
+          <span class="product-card__badge product-card__badge--hit">Хит</span>
+          <img class="product-card__image"
+               src="images/product-1.jpg"
+               alt="Товар 1 — учебный товар"
+               width="400" height="300">
           <h3 class="product-card__title">Товар 1</h3>
           <p class="product-card__description">Краткое описание учебного товара.</p>
           <p class="product-card__price">1000 ₽</p>
@@ -65,6 +71,7 @@
         </article>
 
         <article class="product-card product-card--discount">
+          <span class="product-card__badge product-card__badge--discount">−20%</span>
           <div class="product-card__image" aria-hidden="true"></div>
           <h3 class="product-card__title">Товар 2</h3>
           <p class="product-card__description">Краткое описание учебного товара.</p>
@@ -74,15 +81,121 @@
           </button>
         </article>
 
-        <article class="product-card">
+        <article class="product-card product-card--out-of-stock">
+          <span class="product-card__badge product-card__badge--out">Нет в наличии</span>
           <div class="product-card__image" aria-hidden="true"></div>
           <h3 class="product-card__title">Товар 3</h3>
-          <p class="product-card__description">Краткое описание учебного товара.</p>
+          <p class="product-card__description">Этот товар временно недоступен.</p>
           <p class="product-card__price">2000 ₽</p>
-          <button class="button button--primary product-card__button" type="button" data-product="Товар 3">
-            Заказать
+          <button class="button button--primary product-card__button button--disabled" type="button" disabled>
+            Нет в наличии
           </button>
         </article>
+      </div>
+    </section>
+
+    <!-- ДЕМО: состояния кнопок -->
+    <section class="section" id="states-demo">
+      <h2>Состояния кнопок</h2>
+      <p>Пример разных состояний кнопок для демонстрации:</p>
+
+      <div class="button-demo">
+        <button class="button button--primary" type="button">Обычная</button>
+        <button class="button button--primary button--disabled" type="button" disabled>Отключена</button>
+        <button class="button button--primary button--loading" type="button" aria-busy="true">Загрузка…</button>
+        <button class="button button--secondary" type="button">Второстепенная</button>
+        <button class="button button--secondary button--disabled" type="button" disabled>Второстепенная (disabled)</button>
+      </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="section" id="reviews">
+      <h2>Отзывы покупателей</h2>
+
+      <div class="reviews-grid">
+        <article class="review-card">
+          <div class="review-card__header">
+            <span class="review-card__avatar" aria-hidden="true">А</span>
+            <div>
+              <p class="review-card__name">Анна К.</p>
+              <p class="review-card__date">12 марта 2026</p>
+            </div>
+          </div>
+          <div class="review-card__rating" aria-label="Оценка 5 из 5">★★★★★</div>
+          <p class="review-card__text">
+            Быстрая доставка и приятное оформление заказа. Товар полностью
+            соответствует описанию.
+          </p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__header">
+            <span class="review-card__avatar" aria-hidden="true">И</span>
+            <div>
+              <p class="review-card__name">Иван П.</p>
+              <p class="review-card__date">5 марта 2026</p>
+            </div>
+          </div>
+          <div class="review-card__rating" aria-label="Оценка 4 из 5">★★★★☆</div>
+          <p class="review-card__text">
+            Удобный каталог, фильтры работают корректно. Хотелось бы больше
+            вариантов оплаты.
+          </p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__header">
+            <span class="review-card__avatar" aria-hidden="true">М</span>
+            <div>
+              <p class="review-card__name">Мария С.</p>
+              <p class="review-card__date">28 февраля 2026</p>
+            </div>
+          </div>
+          <div class="review-card__rating" aria-label="Оценка 5 из 5">★★★★★</div>
+          <p class="review-card__text">
+            Заказываю уже третий раз, всё стабильно. Отдельно радует
+            поддержка — отвечают быстро.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2>Часто задаваемые вопросы</h2>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-item__question">Как оформить заказ?</summary>
+          <p class="faq-item__answer">
+            Нажмите кнопку «Заказать» в карточке товара, заполните форму в
+            модальном окне и отправьте заявку.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__question">Сколько занимает доставка?</summary>
+          <p class="faq-item__answer">
+            По Москве — 1–2 дня. По России — от 3 до 7 дней в зависимости
+            от региона.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__question">Можно ли вернуть товар?</summary>
+          <p class="faq-item__answer">
+            Да, в течение 14 дней с момента получения при сохранении
+            упаковки и товарного вида.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__question">Как связаться с поддержкой?</summary>
+          <p class="faq-item__answer">
+            Позвоните по номеру +7 (916) 550-13-53 или напишите на
+            info@example.com.
+          </p>
+        </details>
       </div>
     </section>
 
@@ -101,10 +214,18 @@
     <p>Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
 
-  <button class="to-top" type="button" id="to-top" aria-label="Наверх">↑</button>
+  <!-- Фиксированная кнопка «Наверх» -->
+  <button class="to-top" type="button" id="to-top" aria-label="Наверх" aria-hidden="true">↑</button>
 
+  <!-- Модальное окно -->
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <button class="order-dialog__close" type="button" id="close-order-dialog-x" aria-label="Закрыть окно">×</button>
+
     <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+
+    <p class="order-dialog__product" id="order-dialog-product">
+      Выбран товар: <span id="selected-product-title">—</span>
+    </p>
 
     <form class="order-form" id="order-form" action="#" method="post" novalidate>
       <input id="selected-product" name="selected-product" type="hidden">
@@ -154,6 +275,19 @@
           class="order-form__input" id="order-date"
           name="date"
           type="date"
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-quantity">Количество</label>
+        <input
+          class="order-form__input" id="order-quantity"
+          name="quantity"
+          type="number"
+          min="1"
+          max="99"
+          value="1"
+          required
         >
       </div>
 

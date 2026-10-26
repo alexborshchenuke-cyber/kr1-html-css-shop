@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Подробная карточка товара учебного интернет-магазина: галерея, описание, характеристики и отзывы.">
+  <title>Товар 1 — Подробная карточка — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="product.html">Карточка товара</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#reviews">Отзывы</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+      <span class="breadcrumbs__current">Товар 1</span>
+    </nav>
+
+    <!-- ДЕТАЛЬНАЯ КАРТОЧКА ТОВАРА -->
+    <section class="product-detail">
+      <!-- Галерея -->
+      <div class="product-detail__gallery">
+        <div class="product-detail__main-image" aria-hidden="true"></div>
+        <div class="product-detail__thumbs" role="list">
+          <button class="product-detail__thumb product-detail__thumb--active" type="button" aria-label="Фото 1"></button>
+          <button class="product-detail__thumb" type="button" aria-label="Фото 2"></button>
+          <button class="product-detail__thumb" type="button" aria-label="Фото 3"></button>
+          <button class="product-detail__thumb" type="button" aria-label="Фото 4"></button>
+        </div>
+      </div>
+
+      <!-- Информация -->
+      <div class="product-detail__info">
+        <span class="product-card__badge product-card__badge--hit">Хит продаж</span>
+        <h1 class="product-detail__title">Товар 1</h1>
+
+        <div class="product-detail__meta">
+          <span class="product-detail__meta-item">Артикул: <strong>SP-001</strong></span>
+          <span class="product-detail__meta-item">Категория: <strong>Популярные</strong></span>
+          <span class="product-detail__meta-item product-detail__meta-item--in-stock">В наличии</span>
+        </div>
+
+        <p class="product-detail__price">1000 ₽</p>
+
+        <p class="product-detail__description">
+          Это подробное описание учебного товара. Здесь можно указать
+          назначение, комплектацию, особенности использования и другую
+          информацию, которая поможет покупателю принять решение.
+        </p>
+
+        <div class="product-detail__actions">
+          <button class="button button--primary product-card__button"
+                  type="button" data-product="Товар 1">Заказать</button>
+          <a class="button button--secondary" href="order.html">Оформить отдельно</a>
+        </div>
+
+        <!-- Мини-характеристики -->
+        <ul class="product-detail__features">
+          <li>Гарантия 12 месяцев</li>
+          <li>Доставка по Москве 1–2 дня</li>
+          <li>Возврат в течение 14 дней</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Подробная таблица характеристик -->
+    <section class="section">
+      <h2>Характеристики</h2>
+      <table class="product-table">
+        <caption>Характеристики товара</caption>
+        <thead>
+          <tr>
+            <th scope="col">Параметр</th>
+            <th scope="col">Значение</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Категория</td><td>Учебный товар</td></tr>
+          <tr><td>Артикул</td><td>SP-001</td></tr>
+          <tr><td>Цена</td><td>1000 ₽</td></tr>
+          <tr><td>Наличие</td><td>В наличии</td></tr>
+          <tr><td>Гарантия</td><td>12 месяцев</td></tr>
+          <tr><td>Страна производства</td><td>Россия</td></tr>
+          <tr><td>Вес</td><td>500 г</td></tr>
+          <tr><td>Материал</td><td>Учебный материал</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Отзывы на товар -->
+    <section class="section">
+      <h2>Отзывы на товар</h2>
+      <div class="reviews-grid">
+        <article class="review-card">
+          <div class="review-card__header">
+            <span class="review-card__avatar" aria-hidden="true">О</span>
+            <div>
+              <p class="review-card__name">Ольга Р.</p>
+              <p class="review-card__date">10 марта 2026</p>
+            </div>
+          </div>
+          <div class="review-card__rating" aria-label="Оценка 5 из 5">★★★★★</div>
+          <p class="review-card__text">Товар соответствует описанию, упаковка целая.</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__header">
+            <span class="review-card__avatar" aria-hidden="true">Д</span>
+            <div>
+              <p class="review-card__name">Дмитрий Н.</p>
+              <p class="review-card__date">2 марта 2026</p>
+            </div>
+          </div>
+          <div class="review-card__rating" aria-label="Оценка 4 из 5">★★★★☆</div>
+          <p class="review-card__text">Хорошо, но хотелось бы более подробную инструкцию.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Похожие товары -->
+    <section class="section">
+      <h2>Похожие товары</h2>
+      <div class="products-grid">
+        <article class="product-card">
+          <div class="product-card__image" aria-hidden="true"></div>
+          <h3 class="product-card__title"><a href="product.html">Товар 2</a></h3>
+          <p class="product-card__price">1500 ₽</p>
+          <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
+        </article>
+        <article class="product-card">
+          <div class="product-card__image" aria-hidden="true"></div>
+          <h3 class="product-card__title"><a href="product.html">Товар 3</a></h3>
+          <p class="product-card__price">2000 ₽</p>
+          <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
+        </article>
+        <article class="product-card">
+          <div class="product-card__image" aria-hidden="true"></div>
+          <h3 class="product-card__title"><a href="product.html">Товар 4</a></h3>
+          <p class="product-card__price">1200 ₽</p>
+          <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+
+  <button class="to-top" type="button" id="to-top" aria-label="Наверх" aria-hidden="true">↑</button>
+
+  <!-- Модальное окно -->
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <button class="order-dialog__close" type="button" id="close-order-dialog-x" aria-label="Закрыть окно">×</button>
+
+    <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+
+    <p class="order-dialog__product" id="order-dialog-product">
+      Выбран товар: <span id="selected-product-title">—</span>
+    </p>
+
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="selected-product" type="hidden">
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-name">Имя</label>
+        <input
+          class="order-form__input" id="order-name"
+          name="name"
+          type="text"
+          placeholder="Введите ваше имя"
+          minlength="2"
+          autocomplete="given-name"
+          required
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-email">E-mail</label>
+        <input
+          class="order-form__input" id="order-email"
+          name="email"
+          type="email"
+          placeholder="example@mail.ru"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-phone">Телефон</label>
+        <input
+          class="order-form__input" id="order-phone"
+          name="phone"
+          type="tel"
+          inputmode="tel"
+          placeholder="+7 (900) 000-00-00"
+          pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+          required
+        >
+        <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-date">Дата связи</label>
+        <input
+          class="order-form__input" id="order-date"
+          name="date"
+          type="date"
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-quantity">Количество</label>
+        <input
+          class="order-form__input" id="order-quantity"
+          name="quantity"
+          type="number"
+          min="1"
+          max="99"
+          value="1"
+          required
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-topic">Тема заявки</label>
+        <select class="order-form__select" id="order-topic" name="topic" required>
+          <option value="">Выберите тему</option>
+          <option value="product">Заказ товара</option>
+          <option value="consultation">Консультация</option>
+          <option value="delivery">Доставка</option>
+        </select>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-comment">Комментарий</label>
+        <textarea
+          class="order-form__textarea"
+          id="order-comment"
+          name="comment"
+          rows="4"
+          placeholder="Укажите дополнительную информацию"
+        ></textarea>
+      </div>
+
+      <div class="order-form__field order-form__field--checkbox">
+        <label>
+          <input
+            class="order-form__checkbox" id="order-agreement"
+            name="agreement"
+            type="checkbox"
+            required
+          >
+          Я согласен на обработку данных
+        </label>
+      </div>
+
+      <div class="order-form__actions">
+        <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+        <button class="button button--primary" type="submit">Отправить заявку</button>
+      </div>
+    </form>
+  </dialog>
+
+  <p class="success-message" id="success-message" hidden>
+    Форма успешно отправлена!
+  </p>
+</body>
+</html>
