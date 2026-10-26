@@ -1,93 +1,95 @@
-// Получаем модальное окно по id.
+// ============================
+// Модальное окно заявки
+// ============================
+
 const orderDialog = document.getElementById('order-dialog');
-
-// Получаем все кнопки заказа в карточках товаров.
 const orderButtons = document.querySelectorAll('.product-card__button');
-
-// Получаем кнопку закрытия модального окна.
 const closeDialogButton = document.getElementById('close-order-dialog');
-
-// Получаем скрытое поле, в которое будет записан выбранный товар.
+const closeDialogButtonX = document.getElementById('close-order-dialog-x');
 const selectedProductInput = document.getElementById('selected-product');
+const selectedProductTitle = document.getElementById('selected-product-title');
+const orderForm = document.getElementById('order-form');
+const successMessage = document.getElementById('success-message');
 
-// Перебираем все кнопки «Заказать».
+// Открытие модального окна по кнопкам «Заказать»
 orderButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    // Получаем название товара из data-атрибута.
-    const productName = button.dataset.product;
+    const productName = button.dataset.product || 'Товар';
 
-    // Записываем название товара в скрытое поле формы.
-    selectedProductInput.value = productName;
+    if (!orderDialog) {
+      window.location.href = 'order.html';
+      return;
+    }
 
-    // Открываем модальное окно.
+    if (selectedProductInput) selectedProductInput.value = productName;
+    if (selectedProductTitle) selectedProductTitle.textContent = productName;
+
     orderDialog.showModal();
   });
 });
 
-// Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
-  orderDialog.close();
-});
+// Закрытие модального окна — обе кнопки
+if (closeDialogButton) {
+  closeDialogButton.addEventListener('click', () => orderDialog?.close());
+}
+if (closeDialogButtonX) {
+  closeDialogButtonX.addEventListener('click', () => orderDialog?.close());
+}
 
-// Получаем форму заявки.
-const orderForm = document.getElementById('order-form');
+// Обработка отправки формы
+if (orderForm) {
+  orderForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-// Получаем сообщение об успешной отправке.
-const successMessage = document.getElementById('success-message');
-
-// Обрабатываем отправку формы.
-orderForm.addEventListener('submit', (event) => {
-  // Отменяем стандартную отправку формы,
-  // потому что backend пока не подключён.
-  event.preventDefault();
-
-  // Сбрасываем предыдущие признаки ошибок.
-  const formElements = Array.from(orderForm.elements);
-
-  formElements.forEach((element) => {
-    if (element.willValidate) {
-      element.removeAttribute('aria-invalid');
-    }
-  });
-
-  // Проверяем встроенные HTML-ограничения формы.
-  if (!orderForm.checkValidity()) {
+    const formElements = Array.from(orderForm.elements);
     formElements.forEach((element) => {
-      if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute('aria-invalid', 'true');
+      if (element.willValidate) {
+        element.removeAttribute('aria-invalid');
       }
     });
 
-    // Показываем стандартные сообщения браузера.
-    orderForm.reportValidity();
-    return;
-  }
+    if (!orderForm.checkValidity()) {
+      formElements.forEach((element) => {
+        if (element.willValidate && !element.checkValidity()) {
+          element.setAttribute('aria-invalid', 'true');
+        }
+      });
+      orderForm.reportValidity();
+      return;
+    }
 
-  // Показываем сообщение об успешной отправке.
-  successMessage.hidden = false;
+    if (successMessage) successMessage.hidden = false;
+    orderForm.reset();
+    orderDialog?.close();
+  });
+}
 
-  // Очищаем форму.
-  orderForm.reset();
-
-  // Закрываем модальное окно.
-  orderDialog.close();
-});
-
-/* ===============================
-   Кнопка «Наверх»
-   =============================== */
+// ============================
+// Фиксированная кнопка «Наверх»
+// ============================
 
 const toTopButton = document.getElementById('to-top');
 
-// Скрываем кнопку при загрузке страницы.
-toTopButton.hidden = true;
+if (toTopButton) {
+  // Плавное появление/скрытие через класс --visible
+  const toggleToTop = () => {
+    if (window.scrollY > 300) {
+      toTopButton.classList.add('to-top--visible');
+      toTopButton.setAttribute('aria-hidden', 'false');
+    } else {
+      toTopButton.classList.remove('to-top--visible');
+      toTopButton.setAttribute('aria-hidden', 'true');
+    }
+  };
 
-// Плавная прокрутка наверх по клику.
-toTopButton.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+  // Плавная прокрутка наверх
+  toTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-// Показываем кнопку только после прокрутки 300px.
-window.addEventListener('scroll', () => {
-  toTopButton.hidden = window.scrollY <= 300;
-});
+  // Слушаем скролл
+  window.addEventListener('scroll', toggleToTop);
+
+  // Проверяем при загрузке (если страница открыта не с самого верха)
+  toggleToTop();
+}
